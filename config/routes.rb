@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+ 
+  root 'subjects#index'
+  #post 'subjects/:id' => 'subjects#update'
+
+  #resources :subjects
+
+ 
+  
+  match ':controller(/:action(/:id))', :via => [:get, :post, :patch]
+
+  #match ':controller(/:action(/:id))', :via => :get
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
