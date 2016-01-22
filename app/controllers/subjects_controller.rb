@@ -1,8 +1,8 @@
 class SubjectsController < ApplicationController
 
-  before_action :find_params, only: [:show, :edit, :update, :delete, :destroy]
+  before_action :find_params, only: [:show, :edit, :update, :delete]
 
-  layout false
+  layout "admin"
   
   def index
     @subjects = Subject.sorted    # sorted is lambda from model
@@ -13,6 +13,7 @@ class SubjectsController < ApplicationController
 
   def new
     @subject = Subject.new({:name => "Default"})
+    @subject_count = Subject.count + 1
   end
 
   def create
@@ -25,12 +26,14 @@ class SubjectsController < ApplicationController
       redirect_to(:action => 'index')
      else
       # If save fails, redisplay the form so user can fix problems
+      @subject_count = Subject.count + 1
       render('new')
     end
   end
   
   def edit
      #before action above
+     @subject_count = Subject.count
   end
 
   def update
@@ -38,11 +41,12 @@ class SubjectsController < ApplicationController
         #before action above
     # Update the object
     if @subject.update_attributes(subject_params)
-      # If update succeeds, redirect to the index aciton    ## Add flash hash
+      # If update succeeds, redirect to the show aciton, needs @var.id too  ## Add flash hash
       flash[:notice] = "Subject created successfully"
       redirect_to(:action => 'show',:id => @subject.id)
      else
       # If save fails, redisplay the form so user can fix problems
+       @subject_count = Subject.count
       render('edit')
     end
   end

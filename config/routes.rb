@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
  
-  root 'subjects#index'
+    root 'subjects#index'
   #post 'subjects/:id' => 'subjects#update'
 
   #resources :subjects
