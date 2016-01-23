@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
  
-    root 'subjects#index'
+  root 'subjects#index'
   #post 'subjects/:id' => 'subjects#update'
+
+  get 'admin', :to => "access#index"
 
   #resources :subjects
 
- 
-  
   match ':controller(/:action(/:id))', :via => [:get, :post, :patch]
 
   #match ':controller(/:action(/:id))', :via => :get

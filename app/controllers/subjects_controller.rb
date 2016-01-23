@@ -1,8 +1,9 @@
 class SubjectsController < ApplicationController
 
-  before_action :find_params, only: [:show, :edit, :update, :delete]
-
   layout "admin"
+
+  before_action :confirm_logged_in
+  before_action :find_params, only: [:show, :edit, :update, :delete]  
   
   def index
     @subjects = Subject.sorted    # sorted is lambda from model

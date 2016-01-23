@@ -2,6 +2,8 @@ class SectionsController < ApplicationController
 
   layout "admin"
 
+  before_action :confirm_logged_in
+
   before_action :find_params, only: [:show, :edit, :update, :delete]
   
   def index
