@@ -13,7 +13,7 @@ class SubjectsController < ApplicationController
   end
 
   def new
-    @subject = Subject.new({:name => "Default"})
+    @subject = Subject.new( {:name => "Default"} )
     @subject_count = Subject.count + 1
   end
 

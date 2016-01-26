@@ -1,5 +1,5 @@
 <% @page_title = "Pages | Show" %>
-<%= link_to("Back to Pages", {:action => 'index'}, :class => 'back-link') %>
+<%= link_to("Back to Pages", {:action => 'index', :subject_id => @subject.id}, :class => 'back-link') %>
 <div class="pages edit">
 <div class="Pages show">
   <h2>Show Page</h2>

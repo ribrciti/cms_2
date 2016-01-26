@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1', '>= 3.1.10'
+gem 'acts_as_list', '~> 0.7.2'
 
 group :development do
 	gem 'pry', '~> 0.10.3'

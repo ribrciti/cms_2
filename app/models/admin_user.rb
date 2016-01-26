@@ -13,12 +13,19 @@ class AdminUser < ActiveRecord::Base
                           :length => {:maximum => 25 }
   validates :last_name,   :presence => true,
                           :length => { :maximum => 50 }
-  validates :username,    :length => { :within => 8..25 },
-                          :uniqueness =>  true
+  validates :username,    :length => { :within => 6..25 },
+                          :uniqueness => true
   validates :email,       :presence => true,
-                          :length => { :maximum => 100},
+                          :length => { :maximum => 100 },                          
                           :format => EMAIL_REGEX,
                           :confirmation => true
+scope :sorted, lambda { order("last_name ASC", "first_name ASC")}
+
+  def name
+    "#{first_name} #{last_name}"
+    # or:  [first_name, last_name].join(' ')
+  end                
+end
 
 =begin
   validates_presence_of :first_name
@@ -38,12 +45,7 @@ class AdminUser < ActiveRecord::Base
 	validate :username_is_allowed         # This is a custom validation method  
   #validate :no_new_users_on_saturday, :on => :create 
 
-  scope :sorted, lambda { order("last_name ASC", "first_name ASC")}
-
-  def name
-    "#{first_name} #{last_name}"
-    # or:  [first_name, last_name].join(' ')
-  end
+  
 
   private
 
@@ -64,4 +66,3 @@ class AdminUser < ActiveRecord::Base
 
 
 =end
-end
