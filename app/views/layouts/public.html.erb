@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Cms_2<%= " | #{@page_title} " if @page_title %> </title>
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+	</head>
+	<body>
+		<div id="header">
+			<h1>CMS_2</h1>
+		</div>
+		<div id="main">
+			<div id="navigation">
+				<%= render(:partial => 'layouts/navigation', :locals => {:subjects => @subjects}) %>
+			</div>
+			<div id="content">
+				<%= yield %>
+			</div>
+			<div class="clear">
+				
+			</div>
+		</div>
+		<div id="footer">
+			<p id="copyright">&copy Rich / Rich Enterprises</p>
+		</div>
+	</body>
+</html>

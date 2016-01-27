@@ -1,5 +1,5 @@
 <% @page_title = "Subjects | New" %>
-<%= link_to "Back to List", root_path %>
+<%= link_to("Back to Subjects List", {:action => 'index', :subject_id => @subject.id}, :class => 'back-link') %>
 <div class="subjects new">
 
   <h2>Create Subject</h2>

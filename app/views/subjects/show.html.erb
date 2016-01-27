@@ -1,5 +1,5 @@
 <% @page_title = "Subjects | Show" %>
-<%= link_to "Back to Subjects List", root_path %>
+<%= link_to("Back to Subjects List", {:action => 'index', :subject_id => @subject.id}, :class => 'back-link') %>
 <div class="subjects show">
   <h2>Show Subject</h2>
   <table summary="Subject detail view">

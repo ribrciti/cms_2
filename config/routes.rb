@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
  
-  root 'subjects#index'
+  root 'public#index'
   
   get 'admin', :to => "access#index"
+  get 'show/:permalink', :to => 'public#show'
 
   match ':controller(/:action(/:id))', :via => [:get, :post, :patch]
 
